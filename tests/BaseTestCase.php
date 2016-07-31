@@ -22,7 +22,7 @@ abstract class BaseTestCase extends \Illuminate\Foundation\Testing\TestCase
 
         $app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
-        $app->register(\Askedio\LaravelValidatorFilter\Providers\FilterServiceProvider::class);
+        $app->register(\Askedio\LaravelValidatorFilter\FilterServiceProvider::class);
 
         return $app;
     }

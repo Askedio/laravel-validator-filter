@@ -1,6 +1,6 @@
 <?php
 
-namespace Askedio\LaravelValidatorFilter\Providers;
+namespace Askedio\LaravelValidatorFilter;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +13,9 @@ class FilterServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        app('validator')->extend('filter', function ($attribute, $value, $parameters, $validator) {
+            new Filter($attribute, $value, $parameters, $validator);
+        });
     }
 
     /**
@@ -23,6 +25,6 @@ class FilterServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        app()->register('Rees\Sanitizer\SanitizerServiceProvider');
     }
 }

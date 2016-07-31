@@ -49,6 +49,10 @@ for tests you can copy
 https://raw.githubusercontent.com/laravel/laravel/master/tests/TestCase.php
 
 change name to BaseTestCase and add namespace
+change path of bootstrap
+register your service provider
+
+https://github.com/Askedio/laravel-validator-filter/tree/create-package-step-1
 
 
 

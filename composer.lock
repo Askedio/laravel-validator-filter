@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "645f054bb3fbdad5f8985b3625d01fc6",
-    "content-hash": "990f6a31c10825c13469403e71532152",
+    "hash": "ae4dc7179386721aeb7ace72374bbbf7",
+    "content-hash": "b2fb1adfce45f0fb44e4c4f14315f4a8",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -60,6 +60,46 @@
                 "preload"
             ],
             "time": "2015-11-09 22:51:51"
+        },
+        {
+            "name": "daylerees/sanitizer",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/daylerees/sanitizer.git",
+                "reference": "a0f9b7d70bf9089ddcb74be1f031238f9af7b087"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/daylerees/sanitizer/zipball/a0f9b7d70bf9089ddcb74be1f031238f9af7b087",
+                "reference": "a0f9b7d70bf9089ddcb74be1f031238f9af7b087",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/container": ">=4.0.0",
+                "illuminate/support": ">=4.0.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rees\\Sanitizer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dayle Rees",
+                    "email": "me@daylerees.com"
+                }
+            ],
+            "time": "2014-09-27 19:13:37"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
