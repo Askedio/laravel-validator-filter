@@ -1,0 +1,56 @@
+
+Creating a Laravel 5 Package
+
+* Create a git repository
+* Create a src and tests folder
+* download https://raw.githubusercontent.com/laravel/laravel/master/phpunit.xml
+* composer init
+
+- Would you like to define your dependencies (require) interactively [yes]? yes
+php
+laravel/framework
+
+
+- Would you like to define your dev dependencies (require-dev) interactively [yes]? yes
+laravel/laravel
+phpunit/phpunit
+
+
+Define your version or use latest when searching.
+
+Edit composer.json to define your autoloads and a script to shortcut phpunit.
+
+"autoload": {
+    "psr-4": {
+        "Askedio\\LaravelValidatorFilter\\": "src/"
+    }
+},
+"autoload-dev": {
+    "psr-4": {
+        "Askedio\\LaravelValidatorFilter\\Tests\\" : "tests"
+    }
+},
+"scripts": {
+    "test": "vendor/bin/phpunit"
+},
+
+
+
+composer install
+
+
+mkdir src/Providers
+copy https://raw.githubusercontent.com/laravel/laravel/master/app/Providers/AppServiceProvider.php
+
+change name and namespace
+
+
+for tests you can copy
+https://raw.githubusercontent.com/laravel/laravel/master/tests/TestCase.php
+
+change name to BaseTestCase and add namespace
+
+
+
+
+

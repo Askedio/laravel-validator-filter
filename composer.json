@@ -1,0 +1,34 @@
+{
+    "name": "askedio/laravel-validator-filter",
+    "description": "Filter items before validating them with Laravels Validator",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "William",
+            "email": "gcphost@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.2.*"
+    },
+    "require-dev": {
+        "laravel/laravel": "5.2.*",
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Askedio\\LaravelValidatorFilter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Askedio\\LaravelValidatorFilter\\Tests\\" : "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "minimum-stability": "stable"
+}
