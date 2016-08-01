@@ -19,6 +19,8 @@ Askedio\LaravelValidatorFilter\FilterServiceProvider::class
 
 # Usage
 Use the `filter:` flag with a function or custom [sanitizer](https://github.com/daylerees/sanitizer).
+
+Include multiple filters with a comma delim list (ie: `filter:strip_tags,strtolower`).
 ~~~
 $validator = app('validator')->make([
   'string' => $string,
@@ -29,7 +31,7 @@ $validator = app('validator')->make([
 $validator->passes();
 ~~~
 
-You can also use a function with paramaters.
+You can also use a function with paramaters. (Does not support comma delim list).
 ~~~
 $validator = app('validator')->make([
   'string' => $string,
