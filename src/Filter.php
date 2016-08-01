@@ -57,6 +57,7 @@ class Filter
                 continue;
             }
         }
+        
         $this->data = $value;
     }
 
