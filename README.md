@@ -20,7 +20,7 @@ Askedio\LaravelValidatorFilter\FilterServiceProvider::class
 
 # Examples
 
-You can use any function that has been defined and accepts the value as the parameter.
+You can use any function that is callable and accepts the value as the parameter.
 ```php
 $validator = app('validator')->make([
   'string' => 'Hello ' . PHP_EOL . ' World',
@@ -33,7 +33,7 @@ $validator->passes();
 dd($validator->getData());
 ```
 
-You can define the paramaters in line with, `()` = `[]` and `,` = `;`.
+You can use a function with parameters in line. `()` = `[]` & `,` = `;`.
 ```php
 $validator = app('validator')->make([
   'string' => 'Hello <br> World<p></p>',
