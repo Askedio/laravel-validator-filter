@@ -8,6 +8,8 @@ class FilterTest extends BaseTestCase
     {
         $string = 'Hello '.PHP_EOL.' World';
 
+        request()->replace(['string' => $string]);
+
         $validator = app('validator')->make([
           'string' => $string,
         ], [
@@ -16,7 +18,10 @@ class FilterTest extends BaseTestCase
 
         $validator->passes();
 
-        $this->assertEquals($validator->getData()['string'], nl2br($string));
+        $result = nl2br($string);
+
+        $this->assertEquals($validator->getData()['string'], $result);
+        $this->assertEquals(request()->get('string'), $result);
     }
 
     public function testThatFilterCanUseStripTagsButKeepBr()
