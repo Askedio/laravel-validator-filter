@@ -6,7 +6,7 @@ class FilterTest extends BaseTestCase
 {
     public function testThatFilterCanUseNl2Br()
     {
-        $string = 'Hello ' . PHP_EOL . ' World';
+        $string = 'Hello '.PHP_EOL.' World';
 
         $validator = app('validator')->make([
           'string' => $string,
@@ -37,7 +37,7 @@ class FilterTest extends BaseTestCase
     public function testCustomFilter()
     {
         app('filter')->register('plusOne', function ($value) {
-            return $value+1;
+            return $value + 1;
         });
 
         $validator = app('validator')->make([
