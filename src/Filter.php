@@ -12,7 +12,7 @@ class Filter
 
     protected $validator;
 
-    protected $functional;
+    protected $functionString;
 
     protected $filters = [];
 
@@ -61,16 +61,16 @@ class Filter
 
     protected function stringHasAFunction($param)
     {
-        preg_match('/(.*)\[(.*)\]/s', $param, $this->functional);
+        preg_match('/(.*)\[(.*)\]/s', $param, $this->functionString);
 
-        return count($this->functional) == 3 && is_callable($this->functional[1]);
+        return count($this->functionString) == 3 && is_callable($this->functionString[1]);
     }
 
     private function callFunctionFromString($value)
     {
-        return call_user_func_array($this->functional[1], array_map(function ($string) use ($value) {
+        return call_user_func_array($this->functionString[1], array_map(function ($string) use ($value) {
             return strtr($string, ['{$value}' => $value]);
-        }, explode(';', $this->functional[2])));
+        }, explode(';', $this->functionString[2])));
     }
 
     private function replace()

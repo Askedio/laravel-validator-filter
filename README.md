@@ -21,7 +21,7 @@ Askedio\LaravelValidatorFilter\FilterServiceProvider::class
 # Examples
 
 You can use any function that has been defined and accepts the value as the parameter.
-~~~
+```php
 $validator = app('validator')->make([
   'string' => 'Hello ' . PHP_EOL . ' World',
 ], [
@@ -31,10 +31,10 @@ $validator = app('validator')->make([
 $validator->passes();
 
 dd($validator->getData());
-~~~
+```
 
 You can define the paramaters in line with, `()` = `[]` and `,` = `;`.
-~~~
+```php
 $validator = app('validator')->make([
   'string' => 'Hello <br> World<p></p>',
 ], [
@@ -44,10 +44,10 @@ $validator = app('validator')->make([
 $validator->passes();
 
 dd($validator->getData());
-~~~
+```
 
 You can also define your own custom filter.
-~~~
+```php
 app('filter')->register('plusOne', function ($value) {
     return $value+1;
 });
@@ -61,4 +61,4 @@ $validator = app('validator')->make([
 $validator->passes();
 
 dd($validator->getData());
-~~~
+```
