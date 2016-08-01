@@ -2,8 +2,6 @@
 
 namespace Askedio\LaravelValidatorFilter;
 
-use Closure;
-
 class Filter
 {
     protected $attribute;
@@ -57,7 +55,7 @@ class Filter
                 continue;
             }
         }
-        
+
         $this->data = $value;
     }
 
