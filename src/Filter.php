@@ -30,7 +30,7 @@ class Filter
         $this->replace();
     }
 
-    public function register($name, $callback)
+    public function register(string $name, \Closure $callback)
     {
         $this->filters[$name] = $callback;
     }
