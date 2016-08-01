@@ -22,23 +22,27 @@ Askedio\LaravelValidatorFilter\FilterServiceProvider::class
 You can use any function that has been defined and accepts the value as the parameter.
 ~~~
 $validator = app('validator')->make([
-  'string' => $string,
+  'string' => 'Hello ' . PHP_EOL . ' World',
 ], [
   'string' => 'filter:strip_tags,nl2br',
 ]);
 
 $validator->passes();
+
+dd($validator->getData());
 ~~~
 
 You can define the paramaters in line with, `()` = `[]` and `,` = `;`.
 ~~~
 $validator = app('validator')->make([
-  'string' => $string,
+  'string' => 'Hello <br> World<p></p>',
 ], [
   'string' => 'filter:strip_tags[{$value}; "<br>"]',
 ]);
 
 $validator->passes();
+
+dd($validator->getData());
 ~~~
 
 You can also define your own custom filter.
@@ -54,4 +58,6 @@ $validator = app('validator')->make([
 ]);
 
 $validator->passes();
+
+dd($validator->getData());
 ~~~

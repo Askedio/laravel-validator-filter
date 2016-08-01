@@ -13,7 +13,7 @@ class FilterServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->singleton('filter', function ($app) {
+        $this->app->singleton('filter', function () {
             return new Filter();
         });
 
