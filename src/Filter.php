@@ -73,7 +73,9 @@ class Filter
     {
         $replace = array_merge(array_dot($this->validator->getData()), [$this->attribute => $data[$this->attribute]]);
 
-        request()->replace($replace);
+        if (request()->has($this->attribute)) {
+            request()->replace($replace);
+        }
 
         $this->validator->setData($replace);
     }
