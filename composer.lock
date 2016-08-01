@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "34c0d6e1c346e896ec71d63c1d31f7a2",
-    "content-hash": "1c2f1ecbe54bb23ac30329b0b51dcce9",
+    "hash": "4100cbf6fc0913e1ea9a47499e408203",
+    "content-hash": "da7c8bd28db4549b02b441294a324611",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -60,46 +60,6 @@
                 "preload"
             ],
             "time": "2015-11-09 22:51:51"
-        },
-        {
-            "name": "daylerees/sanitizer",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/daylerees/sanitizer.git",
-                "reference": "a0f9b7d70bf9089ddcb74be1f031238f9af7b087"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/daylerees/sanitizer/zipball/a0f9b7d70bf9089ddcb74be1f031238f9af7b087",
-                "reference": "a0f9b7d70bf9089ddcb74be1f031238f9af7b087",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/container": ">=4.0.0",
-                "illuminate/support": ">=4.0.0",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.0.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Rees\\Sanitizer\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Dayle Rees",
-                    "email": "me@daylerees.com"
-                }
-            ],
-            "time": "2014-09-27 19:13:37"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -561,16 +521,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.20.0",
+            "version": "1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "55841909e2bcde01b5318c35f2b74f8ecc86e037"
+                "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/55841909e2bcde01b5318c35f2b74f8ecc86e037",
-                "reference": "55841909e2bcde01b5318c35f2b74f8ecc86e037",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f42fbdfd53e306bda545845e4dbfd3e72edb4952",
+                "reference": "f42fbdfd53e306bda545845e4dbfd3e72edb4952",
                 "shasum": ""
             },
             "require": {
@@ -635,7 +595,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-07-02 14:02:10"
+            "time": "2016-07-29 03:23:52"
         },
         {
             "name": "mtdowling/cron-expression",

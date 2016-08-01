@@ -33,4 +33,21 @@ class FilterTest extends BaseTestCase
 
         $this->assertEquals($validator->getData()['string'], strip_tags($string, '<br>'));
     }
+
+    public function testCustomFilter()
+    {
+        app('filter')->register('plusOne', function ($value) {
+            return $value+1;
+        });
+
+        $validator = app('validator')->make([
+          'int' => '<br>1',
+        ], [
+          'int' => 'filter:strip_tags,plusOne',
+        ]);
+
+        $validator->passes();
+
+        $this->assertEquals($validator->getData()['int'], 2);
+    }
 }

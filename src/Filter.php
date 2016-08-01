@@ -2,6 +2,8 @@
 
 namespace Askedio\LaravelValidatorFilter;
 
+use Closure;
+
 class Filter
 {
     protected $attribute;
@@ -14,64 +16,67 @@ class Filter
 
     protected $functional;
 
-    public function __construct($attribute, $value, $parameters, $validator)
+    protected $filters = [];
+
+    protected $data;
+
+    public function run($attribute, $value, $parameters, $validator)
     {
         $this->attribute = $attribute;
         $this->value = $value;
         $this->parameters = $parameters;
         $this->validator = $validator;
 
-        $this->setData();
+        $this->process();
 
-        $this->run();
+        $this->replace();
     }
 
-    protected function run()
+    public function register($name, $callback)
     {
-        $this->replace($this->getData());
+        $this->filters[$name] = $callback;
     }
 
-    protected function getData()
+    protected function process()
     {
-        return $this->data;
-    }
+        $value = $this->value;
 
-    protected function setData()
-    {
-        if ($this->paramsContainAFunction()) {
-            $this->data = [$this->attribute => $this->getValueFromFunction($this->value)];
-            return;
+        foreach ($this->parameters as $param) {
+            if (array_key_exists($param, $this->filters)) {
+                $value = call_user_func($this->filters[$param], $value);
+                continue;
+            }
+
+            if (is_callable($param)) {
+                $value = call_user_func($param, $value);
+                continue;
+            }
+
+            if ($this->stringHasAFunction($param)) {
+                $value = $this->callFunctionFromString($value);
+                continue;
+            }
         }
-
-        $this->data = $this->replaceWithSanitizer();
+        $this->data = $value;
     }
 
-    protected function replaceWithSanitizer()
+    protected function stringHasAFunction($param)
     {
-        $data = [$this->attribute => $this->value];
+        preg_match('/(.*)\[(.*)\]/s', $param, $this->functional);
 
-        app('sanitizer')->sanitize([$this->attribute => $this->parameters], $data);
-
-        return $data;
+        return count($this->functional) == 3 && is_callable($this->functional[1]);
     }
 
-    protected function paramsContainAFunction()
-    {
-        preg_match('/(.*)\[(.*)\]/s', implode($this->parameters), $this->functional);
-
-        return count($this->functional) == 3 && function_exists($this->functional[1]);
-    }
-
-    private function getValueFromFunction($value)
+    private function callFunctionFromString($value)
     {
         return call_user_func_array($this->functional[1], array_map(function ($string) use ($value) {
             return strtr($string, ['{$value}' => $value]);
         }, explode(';', $this->functional[2])));
     }
 
-    private function replace($data)
+    private function replace()
     {
-        $replace = array_merge(array_dot($this->validator->getData()), [$this->attribute => $data[$this->attribute]]);
+        $replace = array_merge(array_dot($this->validator->getData()), [$this->attribute => $this->data]);
 
         if (request()->has($this->attribute)) {
             request()->replace($replace);

@@ -17,26 +17,40 @@ Add the following to the providers array in `config/app.php`:
 Askedio\LaravelValidatorFilter\FilterServiceProvider::class
 ~~~
 
-# Usage
-Use the `filter:` flag with a function or custom [sanitizer](https://github.com/daylerees/sanitizer).
+# Examples
 
-Include multiple filters with a comma delim list (ie: `filter:strip_tags,strtolower`).
+You can use any function that has been defined and accepts the value as the parameter.
 ~~~
 $validator = app('validator')->make([
   'string' => $string,
 ], [
-  'string' => 'filter:nl2br',
+  'string' => 'filter:strip_tags,nl2br',
 ]);
 
 $validator->passes();
 ~~~
 
-You can also use a function with paramaters. (Does not support comma delim list).
+You can define the paramaters in line with, `()` = `[]` and `,` = `;`.
 ~~~
 $validator = app('validator')->make([
   'string' => $string,
 ], [
   'string' => 'filter:strip_tags[{$value}; "<br>"]',
+]);
+
+$validator->passes();
+~~~
+
+You can also define your own custom filter.
+~~~
+app('filter')->register('plusOne', function ($value) {
+    return $value+1;
+});
+
+$validator = app('validator')->make([
+  'int' => '<br>1',
+], [
+  'int' => 'filter:strip_tags,plusOne',
 ]);
 
 $validator->passes();
