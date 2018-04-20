@@ -6,7 +6,7 @@ Values will be filtered based on the function you provide. If the parameter exis
 [![Build Status](https://travis-ci.org/Askedio/laravel-validator-filter.svg?branch=master)](https://travis-ci.org/Askedio/laravel-validator-filter)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f91e7399c0ff40c988ba1587f3594d8a)](https://www.codacy.com/app/gcphost/laravel-validator-filter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Askedio/laravel-validator-filter&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/f91e7399c0ff40c988ba1587f3594d8a)](https://www.codacy.com/app/gcphost/laravel-validator-filter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Askedio/laravel-validator-filter&amp;utm_campaign=Badge_Coverage)
-[![StyleCI](https://styleci.io/repos/64607017/shield)](https://styleci.io/repos/64607017)
+[![StyleCI](https://styleci.io/repos/74531615/shield?branch=master)](https://styleci.io/repos/74531615)
 
 # Installation
 ~~~
